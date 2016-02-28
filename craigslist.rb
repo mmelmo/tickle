@@ -18,6 +18,6 @@ b.text_field(name: "contact_name").set("Edwin Lee")
 b.text_field(name: "PostingTitle").set("ArtistName Venue Date Number of Tickets")
 b.text_field(name: "Ask").set("69")
 b.text_field(name: "postal").set("94133")
-PBS = ["Suck me","Blow me","Tickle me", "Gross"]
+PBS = ["Suck me","Blow me","Tickle me", "Gross, dude"]
 b.text_field(name: "PostingBody").set(PBS[rand(0..2)])
 sleep(rand(240..320))
