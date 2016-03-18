@@ -31,14 +31,23 @@ require 'watir-webdriver'
 b = Watir::Browser.new
 b.goto("https://post.craigslist.org/c/sfo")
 
+sleep(rand(2..5))
+
 b.radio(value: "fso").set
+
+sleep(rand(2..5))
 
 b.radio(value: "44").set
 
+sleep(rand(2..5))
+
 b.radio(value: "1").set
 
-# TODO: use all radios instead of just first ten
+sleep(rand(2..5))
+
 b.radios[rand(0..5)].set
+
+sleep(rand(2..5))
 
 b.text_field(name: "FromEMail").set(email)
 b.text_field(name: "ConfirmEMail").set(email)
@@ -57,10 +66,14 @@ b.text_field(name: "number_available").set(number_of_tickets)
 
 b.button(name: "go").click
 
+sleep(rand(2..5))
+
 b.button(text: "continue").click
+
+sleep(rand(2..5))
 
 b.button(text: "done with images").click
 
-b.button(text: "publish").click
+sleep(rand(2..5))
 
-b.button(name: "go").click
+b.button(text: "publish").click
