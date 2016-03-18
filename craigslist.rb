@@ -16,7 +16,7 @@ puts "event location: "
 location = gets.gsub("\n","")
 
 puts "event date: "
-date = gets
+date = gets.gsub("\n","")
 
 puts "# of tickets: "
 number_of_tickets = gets.gsub("\n","")
@@ -24,8 +24,11 @@ number_of_tickets = gets.gsub("\n","")
 puts "price per ticket: "
 price_per_ticket = gets.gsub("\n","")
 
+puts "additional info: "
+additional_info = gets.gsub("\n","")
+
 title = artist + " - " + location + " - " + date + " - " + number_of_tickets + " tickets - $" + price_per_ticket
-body = "Selling " + number_of_tickets + " " + artist + " tickets ($" + price_per_ticket + "/ticket) at " + location + " on " + date + ". Accepting Paypal or Venmo!"
+body = "Selling " + number_of_tickets + " " + artist + " tickets ($" + price_per_ticket + "/ticket) at " + location + " on " + date + ". Accepting Paypal or Venmo!\n" + additional_info
 
 require 'watir-webdriver'
 b = Watir::Browser.new
