@@ -28,7 +28,14 @@ puts "additional info: "
 additional_info = gets.gsub("\n","")
 
 title = artist + " - " + location + " - " + date + " - " + number_of_tickets + " tickets - $" + price_per_ticket
-body = "Selling " + number_of_tickets + " " + artist + " tickets ($" + price_per_ticket + "/ticket) at " + location + " on " + date + ". Accepting Paypal or Venmo!\n" + additional_info
+
+body_scripts = []
+body_scripts << "Selling " + number_of_tickets + " " + artist + " tickets ($" + price_per_ticket + "/ticket) at " + location + " on " + date + ". Accepting Paypal or Venmo!\n" + additional_info
+body_scripts << "Friends flaked on me.. Please take these extra tickets off me. I have " + number_of_tickets + " tickets for " + artist + " at " + location + " on " + date + ". \n$" + price_per_ticket + " each. I take paypal or venmo. I can transfer via ticketmaster to ensure a safe and smoothie transaction." + additional_info
+body_scripts << "Heyy guys:) Turns out I have " + number_of_tickets + " extra tickets for " + artist + " at " + location + "." + date + ". \n I'm looking for $" + price_per_ticket + " each please. " + " I accept payments through venmo or paypal & can trasnfer via ticketmaster or email if you'd like. Just let me know! :))" + additional_info
+body_scripts << "Hi CL! " + " I have " + number_of_tickets + " tickets for " + artist + " at " + location + " on " + date + ". \nI'd like $" + price_per_ticket + " per ticket OBO. I take paypal or venmo. Thanks for reading." + additional_info
+body_scripts << "How's it going? I have "  + number_of_tickets + " tickets for " + artist + " at " + location + " on " + date + ". \n I'm asking for $" + price_per_ticket + " each. Only accepting Venmo or Paypal. I can transfer tickets via ticketmaster " + additional_info
+body_scripts << "Selling a couple tickets for the sold out " + artist + " show at " + location + " for $" + price_per_ticket + " each. I have " + number_of_tickets + " tickets left. " + " I accept Paypal/ Venmo. " + additional_info
 
 require 'watir-webdriver'
 b = Watir::Browser.new
@@ -63,20 +70,20 @@ b.text_field(name: "Ask").set(price_per_ticket)
 
 b.text_field(name: "postal").set(zip_code)
 
-b.text_field(name: "PostingBody").set(body)
+b.text_field(name: "PostingBody").set(body_scripts[rand(0..5)])
 
 b.text_field(name: "number_available").set(number_of_tickets)
 
-b.button(name: "go").click
+#b.button(name: "go").click
 
-sleep(rand(2..5))
+#sleep(rand(2..5))
 
-b.button(text: "continue").click
+#b.button(text: "continue").click
 
-sleep(rand(2..5))
+#sleep(rand(2..5))
 
-b.button(text: "done with images").click
+#b.button(text: "done with images").click
 
-sleep(rand(2..5))
+#sleep(rand(2..5))
 
-b.button(text: "publish").click
+#b.button(text: "publish").click
