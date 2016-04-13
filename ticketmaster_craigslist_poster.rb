@@ -1,7 +1,16 @@
 # CREATE CGLIST ADD WITH LATEST TICKETMASTER EVENT
 
+# TODO: 
+# - add seats to message body
+# - spin text so craigslist thinks ads are unique (jordan /  mel already started this)
+# - file with secret values to pull all variables from (ie, ticketmaster_email)
+
 require 'watir-webdriver'
 
+puts "your name: "
+name = gets.gsub("\n", "")
+puts "zip code: "
+zip_code = gets.gsub("\n", "")
 puts "ticketmaster email: "
 ticketmaster_email = gets.gsub("\n", "")
 puts "ticketmaster password: "
@@ -10,6 +19,8 @@ puts "price per ticket: "
 price_per_ticket = gets.gsub("\n","")
 puts "additional ticket info: "
 additional_info = gets.gsub("\n","")
+puts "gmail email: "
+gmail_email = gets.gsub("\n", "")
 puts "gmail password: "
 gmail_password = gets.gsub("\n", "")
 
@@ -32,9 +43,6 @@ Watir::Wait.until { b.link(text: "My Tickets").visible? }
 b.link(text: "My Tickets").click
 html = b.html
 
-gmail_email = "melodysong1990@gmail.com"
-name = "Melody Song"
-zip_code = "94107"
 event_name = html.scan(/eventData[^*]+?name":"([^*]+?)"/)[0][0]
 location = html.scan(/venueData[^*]+?name":"([^*]+?)"/)[0][0]
 date = html.scan(/date":"([^*]+?)"/)[0][0]
@@ -118,5 +126,7 @@ b.window(title: "SF bay area | create posting").use  do
 	sleep(rand(2..5))
 	b.button(text: "ACCEPT the terms of use").click
 end
+
+b.close
 
 puts "done"

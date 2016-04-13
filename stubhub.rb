@@ -5,7 +5,6 @@ b.goto("https://www.stubhub.com/my/profile/")
 
 Watir::Wait.until { b.text_field(name: "email-id").visible? }
 b.text_field(id: "email-id").set("wan_jordan@yahoo.com")
-
 b.text_field(id: "password").set("125653587Nm")
 b.button(text: "Sign in").click
 
@@ -39,7 +38,7 @@ s = b.select_list(id: "splitDropDown")
 s.select '1'
 b.link(href: "disclosures?ticketMedium=PDF&deliveryMethod=Instant download").click
 
-Watir::Wait.until {b.checkbox(id: noneReqDisclosuresCheckBox)visible? }
+Watir::Wait.until {b.checkbox(id: noneReqDisclosuresCheckBox).visible? }
 b.checkbox(id: "noneReqDisclosuresCheckBox").set
 b.link(href: "ticket_price?ticketMedium=PDF&deliveryMethod=Instant download").click
 
